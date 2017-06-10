@@ -6,18 +6,13 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html">
 
 <h:head>
-	<title>Flight details</title>
+	<title>airline</title>
 </h:head>
 <h:body>
-	<h:dataTable value="#{airline.flights}" var="f" border="2" cellspacing="1" cellpadding="1">
-		<h:column>
-			<f:facet name="header">ID</f:facet>
-		#{f.id}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Name</f:facet>
-		#{f.name}
-		</h:column>
-	</h:dataTable>
+	<h3>Airline Services:</h3>
+	<h:form>
+		<h:link outcome="listAllFlight" style="text-decoration:none" value="1. List All flight" /><br />
+		
+	</h:form>
 </h:body>
 </html>

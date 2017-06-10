@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+<h:body>
+
+	<h:form>
+		<h:outputText value="SEARCH BY:"></h:outputText>
+ 	AirlineName:
+ 	<h:inputText id="airlineName_id"
+			value="#{commonService.searchQuery.airlineName}">
+		</h:inputText>
+ 	
+ 	OriginAirport:
+ 	<h:inputText id="originAirportCode_id"
+			value="#{commonService.searchQuery.originAirportCode}">
+		</h:inputText>
+ 	 DestinationAirportCode:
+ 	<h:inputText id="destinationAirportCode_id"
+			value="#{commonService.searchQuery.destinationAirportCode}">
+		</h:inputText>
+
+		<h:commandButton value="search">
+			<f:ajax listener="#{commonService.SearchFlight()}" execute="@form"
+				render="list" />
+		</h:commandButton>
+
+	</h:form>
+	<br />
+	<h:dataTable value="#{commonService.listFlight}" var="var" id="list"
+		styleClass="bankTable" headerClass="bankTableHeader"
+		rowClasses="bankTableOddRow,bankTableEvenRow">
+		<h:column>
+			<f:facet name="header">Flight Number</f:facet>#{var.flightnr}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Airline</f:facet>#{var.airline.name}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Departure DateTime</f:facet>#{var.departureDate}&nbsp;&nbsp; #{var.departureTime}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Arrival DateTime</f:facet>#{var.arrivalDate}&nbsp;&nbsp; #{var.arrivalTime}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Origin</f:facet>(#{var.origin.airportcode})#{var.origin.name}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Destination</f:facet>(#{var.destination.airportcode})#{var.destination.name}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Model</f:facet>#{var.airplane.model}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Capacity</f:facet>#{var.airplane.capacity}
+		</h:column>
+
+	</h:dataTable>
+	<br />
+	<h:form>
+		<h:commandLink action="index?faces-redirect=true">
+			<h:outputText value="Back"></h:outputText>
+		</h:commandLink>
+	</h:form>
+</h:body>
+</html>

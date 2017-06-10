@@ -1,8 +1,10 @@
 package cs545.airline.model;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,9 +20,9 @@ public class Airline {
 	@GeneratedValue
 	private long id;
 	private String name;
-	@OneToMany(mappedBy = "airline")
+	@OneToMany(mappedBy = "airline", cascade= CascadeType.ALL)
 	@OrderBy("departureDate, departureTime")
-	private List<Flight> flights;
+	private List<Flight> flights = new ArrayList<>();
 
 	/* Constructors */
 	public Airline() {
@@ -48,12 +50,7 @@ public class Airline {
 	}
 
 	public List<Flight> getFlights() {
-		
-		for (Flight flight : flights) {
-			System.out.println("--------"+flight.getFlightnr());
-		}
 		return Collections.unmodifiableList(flights);
-		
 	}
 	
 	/* Collections Methods */
