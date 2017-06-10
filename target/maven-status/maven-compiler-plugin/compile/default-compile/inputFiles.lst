@@ -1,5 +1,6 @@
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\cs545\airline\dao\FlightDao.java
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\cs545\airline\configuration\RestConfig.java
+C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\edu\mum\cs545\ws\FlightController.java
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\cs545\airline\model\Airline.java
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\cs545\airline\dao\AirplaneDao.java
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\cs545\airline\service\FlightService.java
@@ -8,8 +9,9 @@ C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\cs545\airline\service\AirplaneSe
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\edu\mum\gf\workaround\CDIBeanManager.java
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\cs545\airline\dao\AirlineDao.java
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\edu\mum\cs545\ws\AirplaneController.java
-C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\edu\mum\gf\workaround\JpaUtil.java
+C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\edu\mum\cs545\ws\AirportController.java
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\edu\mum\cs545\ws\HelloRest.java
+C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\edu\mum\gf\workaround\JpaUtil.java
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\cs545\airline\model\Flight.java
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\cs545\airline\service\AirportService.java
 C:\Users\SJamtsho\git\WAA_AIRLINE\src\main\java\edu\mum\gf\workaround\ResouceReleaseListener.java

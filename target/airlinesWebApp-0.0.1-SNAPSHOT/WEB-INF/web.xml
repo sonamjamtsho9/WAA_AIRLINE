@@ -22,38 +22,27 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+
 	<!-- Additional mapping -->
-	
+
 	<servlet>
-		<servlet-name>FacesServlet</servlet-name>
+		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>2</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>FacesServlet</servlet-name>
+		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>FacesServlet</servlet-name>
-		<url-pattern>*.jsf</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>FacesServlet</servlet-name>
-		<url-pattern>*.faces</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>FacesServlet</servlet-name>
+		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
-	
+
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
 	</context-param>
-	
-	<!-- <welcome-file-list>
-		<welcome-file>index.xhtml</welcome-file>
-	</welcome-file-list> -->
+
 </web-app>
