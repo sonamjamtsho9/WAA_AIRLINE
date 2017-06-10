@@ -1,5 +1,6 @@
 cs545\airline\dao\FlightDao.class
 edu\mum\gf\workaround\JpaUtil.class
+edu\mum\cs545\ws\AirplaneController.class
 cs545\airline\dao\AirportDao.class
 cs545\airline\model\Flight.class
 cs545\airline\dao\AirlineDao.class

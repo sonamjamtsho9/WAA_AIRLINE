@@ -32,17 +32,14 @@ public class AirlineController {
 	public Response findByName(@PathParam("fname") String fname) {
 		Airline flight = new Airline();
 		flight.setName(fname);
-		if (fname == null || fname.trim().length() == 0) {
-			return Response.serverError().entity("Flight name cannot be empty").build();
-		}
-
-		flight = airlineService.findByName(fname);
-		if (flight == null) {
+		try {
+			flight = airlineService.findByName(fname);
+			return Response.ok(flight, MediaType.APPLICATION_JSON).build();
+		} catch (Exception e) {
 			return Response.status(Response.Status.NOT_FOUND).entity("Flight not found by the flight name " + fname)
 					.build();
 		}
 
-		return Response.ok(flight, MediaType.APPLICATION_JSON).build();
 	}
 
 	// Create new airline
@@ -50,7 +47,7 @@ public class AirlineController {
 	@Path("create")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response create(Airline airline) {
+	public Response createAirline(Airline airline) {
 		try {
 			airlineService.create(airline);
 			return Response.ok(airline).build();
@@ -71,7 +68,6 @@ public class AirlineController {
 		} catch (Exception e) {
 			return Response.serverError().entity(airport + "Not found").build();
 		}
-
 	}
 
 	// Update airline
@@ -79,7 +75,7 @@ public class AirlineController {
 	@Path("update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response update(Airline airline) {
+	public Response updateAirline(Airline airline) {
 		try {
 			airlineService.update(airline);
 			return Response.ok(airline).build();
@@ -91,26 +87,25 @@ public class AirlineController {
 	// Find flight by id
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("flight/{id}")
-	public Response find(@PathParam("id") int id) {
+	@Path("ID/{id}")
+	public Response findByID(@PathParam("id") int id) {
 		Airline flightID = new Airline();
 		flightID.setId(id);
-		flightID = airlineService.find(flightID);
 
-		if (flightID == null) {
-			if (flightID == null) {
-				return Response.status(Response.Status.NOT_FOUND).entity("Flight ID " + id + "not found").build();
-			}
+		try {
+			flightID = airlineService.find(flightID);
+			return Response.ok(flightID, MediaType.APPLICATION_JSON).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.NOT_FOUND).entity("Flight ID " + id + "not found").build();
 		}
 
-		return Response.ok(flightID, MediaType.APPLICATION_JSON).build();
 	}
 
-	// list all the flight by passing flight name
+	// List all the flight by passing flight name
 	@GET
 	@Path("flight/{name}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Airline> getFlight(@PathParam("name") String name) {
+	public List<Airline> getByFlight(@PathParam("name") String name) {
 		List<Airline> flight = new ArrayList<>();
 		Airline airline = airlineService.findByName(name);
 		List<Flight> listFlight = airline.getFlights();
@@ -121,7 +116,7 @@ public class AirlineController {
 
 	}
 
-	// List flights by flight id and flight name
+	// List flights by flight id and name
 	@GET
 	@Path("listall")
 	@Produces(MediaType.APPLICATION_JSON)
