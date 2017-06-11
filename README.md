@@ -3,7 +3,7 @@
 # Airline Service
   	1. Create
   		1. POST method is used to create a new airline by passing JSON as raw input as part of the body message
-  		2. URL Path: http://localhost:8080/airlinesWebApp/rs/airline/create
+  		2. [URL Path:] (http://localhost:8080/airlinesWebApp/rs/airline/create)
   		3. Response (interface) is used to display the response message
   	2. Delete
   		1. DELETE method is used to delete a record. JSON format is passed on as a raw input as part of the body message
