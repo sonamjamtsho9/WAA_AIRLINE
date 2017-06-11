@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+<h:body>
+	<h3>CRUD Operation</h3>
+	<h:form>
+ 	    Create AirlineName:
+ 	    <h:inputText id="text_airlinename"
+			value="#{commonService.flightQuery.airlineName}">
+		</h:inputText>
+		<h:commandButton value="Create"
+			action="#{commonService.createFromJSF()}">
+
+		</h:commandButton>
+	</h:form>
+	<br />
+	<h:form>
+ 	    Select Airline to update:
+ 	    <h:selectOneMenu value="#{commonService.flightQuery.id}">
+
+			<f:selectItems value="#{airlineService.findAll()}" var="c"
+				itemLabel="#{c.name}" itemValue="#{c.id}" />
+		</h:selectOneMenu>
+		<br />
+ 	    New Name:
+		<h:inputText id="text_airlinename3"
+			value="#{commonService.flightQuery.airlineName}">
+		</h:inputText>
+		<h:commandButton value="Update"
+			action="#{commonService.updateFromJSF()}">
+		</h:commandButton>
+	</h:form>
+	<br />
+	<h:form>
+ 	    Select Airline to delete:
+ 	     <h:selectOneMenu value="#{commonService.flightQuery.id}">
+
+			<f:selectItems value="#{airlineService.findAll()}" var="c"
+				itemLabel="#{c.name}" itemValue="#{c.id}" />
+		</h:selectOneMenu>
+		<h:commandButton value="Delete"
+			action="#{commonService.deleteFromJSF()}">
+		</h:commandButton>
+	</h:form>
+	<br />
+	<h:form>
+		<h:dataTable value="#{airlineService.findAll()}"
+			var="var" styleClass="bankTable" headerClass="bankTableHeader"
+			rowClasses="bankTableOddRow,bankTableEvenRow">
+			<h:column>
+				<f:facet name="header">Flight Id</f:facet>#{var.id}
+		</h:column>
+			<h:column>
+				<f:facet name="header">Airline</f:facet>#{var.name}
+		</h:column>
+		</h:dataTable>
+	</h:form>
+	<br />
+	<h:form>
+		<h:commandLink action="index?faces-redirect=true">
+			<h:outputText value="Back"></h:outputText>
+		</h:commandLink>
+	</h:form>
+</h:body>
+</html>

@@ -135,4 +135,22 @@
   	10. List all
   		1. GET method is used to retrieve the information
   		2. URL Path: http://localhost:8080/airlinesWebApp/rs/Flight/listall
-  
+  # JSF Web Application
+  	1. Set up for the Web application
+  		1. Two java classes were implemented to provide as the common service to list the flight details and as DAO.
+  		2. A simple CSS is created to render the table to list the flight and airline list.
+  		3. Simple XHTML pages are created(index page provides links to other pages like list the flight details, list airline and CRUD operation page. 
+  	2. List all the flight with details:
+  		1. This page list down flights in a table with details like flight id, name, departure time, arrival time, origin and destination airport. 
+  		2. In this page, there is also a filter where you can filter the flight by name, arrival time, departure time, origin and destination. A bean called CommomService.java is implemented to check the condition for this filter. 
+  		3. Datatable is used to iterate over the list of flight and display in tabular format in a browser. 
+  		4. JFS Ajax is used to render this display: 	<f:ajax listener="#{commonService.filter()}" execute="@form"
+				render="display" />. 
+		5. A simple navigation is implemented to return to index page by using: action="index?faces-redirect=true"
+	3. List the airline
+		1. A datatable is used to display the list of airline with ID and Name.
+	4. CRUD Operation(Create, Update, Delete and List)
+		1. A flight name is provided through the input text and the id is genereted randomly.
+		2. For delete and Update methods, a dropdown (jsf selectonemenu) list is provided (which is flight name) to delete or to change the flight name of the airline. 
+	5. A list is displayed below in tabular format and changes when ever there is an operation. For example, if flight is updated it refreshes with new flight name.
+	

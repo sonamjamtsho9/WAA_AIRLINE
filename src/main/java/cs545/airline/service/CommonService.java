@@ -116,27 +116,29 @@ public class CommonService implements Serializable {
 		}
 	}
 
-	public void createFromJSF() {
+	public String createFromJSF() {
 		Airline airline = new Airline();
 		airline.setName(flightQuery.getAirlineName());
 		airlineService.create(airline);
+		return "CRUD";
 	}
 
-	public void deleteFromJSF() {
+	public String deleteFromJSF() {
 
 		Airline airline = new Airline();
 		airline.setId(flightQuery.getId());
 		airlineService.delete(airline);
-
+		return "CRUD";
 	}
 
-	public void updateFromJSF() {
+	public String updateFromJSF() {
 
 		Airline airline = new Airline();
 
 		airline.setId(flightQuery.getId());
 		airline.setName(flightQuery.getAirlineName());
 		airlineService.update(airline);
+		return "CRUD";
 	}
 
 	public List<Flight> getListFlight() {

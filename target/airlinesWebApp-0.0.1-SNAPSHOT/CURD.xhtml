@@ -9,51 +9,44 @@
 	<h:outputStylesheet library="css" name="styles.css" />
 </h:head>
 <h:body>
-	<h3>CURD Operation</h3>
+	<h3>CRUD Operation</h3>
 	<h:form>
  	    Create AirlineName:
  	    <h:inputText id="text_airlinename"
 			value="#{commonService.flightQuery.airlineName}">
 		</h:inputText>
-		<h:commandButton value="Create">
-			<f:ajax listener="#{commonService.createFromJSF()}" execute="@form"
-				render="table_id" />
+		<h:commandButton value="Create" action ="#{commonService.createFromJSF()}">
 		</h:commandButton>
 	</h:form>
-
+	<br />
 	<h:form>
- 	    Update AirlineName:
+ 	    Select Airline to update:
  	    <h:selectOneMenu value="#{commonService.flightQuery.id}">
 
                 <f:selectItems value="#{airlineService.findAll()}" var="c"
 
                     itemLabel="#{c.name}" itemValue="#{c.id}" />
             </h:selectOneMenu>
- 	    
+ 	    <br />
+ 	    New Name:
 		<h:inputText id="text_airlinename3"
 			value="#{commonService.flightQuery.airlineName}">
 		</h:inputText>
 		<h:commandButton value="Update">
-			<f:ajax listener="#{commonService.updateFromJSF()}" execute="@form"
-				render="table_id" />
+			<f:ajax listener="#{commonService.updateFromJSF()}" execute="@form" render="table_id" />
 		</h:commandButton>
 	</h:form>
-	
+	<br />
 	<h:form>
- 	    Delete AirlineName:
+ 	    Select Airline to delete:
  	     <h:selectOneMenu value="#{commonService.flightQuery.id}">
 
                 <f:selectItems value="#{airlineService.findAll()}" var="c"
 
                     itemLabel="#{c.name}" itemValue="#{c.id}" />
             </h:selectOneMenu>
- 	    
- 	   <!--  <h:inputText id="text_airlinename2"
-			value="#{commonService.flightQuery.airlineName}">
-		</h:inputText>  -->
 		<h:commandButton value="Delete">
-			<f:ajax listener="#{commonService.deleteFromJSF()}" execute="@form"
-				render="table_id" />
+			<f:ajax listener="#{commonService.deleteFromJSF()}" execute="@form" render="table_id" />
 		</h:commandButton>
 	</h:form>
 

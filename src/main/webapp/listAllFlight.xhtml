@@ -34,7 +34,7 @@
 		</h:inputText>
 
 		<h:commandButton value="Search">
-			<f:ajax listener="#{commonService.filterQuery()}" execute="@form"
+			<f:ajax listener="#{commonService.filter()}" execute="@form"
 				render="display" />
 		</h:commandButton>
 	</h:form>
