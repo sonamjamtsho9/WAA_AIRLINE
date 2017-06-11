@@ -152,10 +152,6 @@
 	4. CRUD Operation(Create, Update, Delete and List)
 		1. A flight name is provided through the input text and the id is genereted randomly.
 		2. For delete and Update methods, a dropdown (jsf selectonemenu) list is provided (which is flight name) to delete or to change the flight name of the airline. 
-	5. A list is displayed below in tabular format and changes when ever there is an operation. For example, if flight is updated it refreshes with new flight name.
-	6. ![HomePage ScreenShot](homepage.png)
-	7. ![Flight details ScreenShot](Flight details.png)
-	8. ![Filter Screenshot](filter.png)
-	9. ![List Airline Screenshot](listairline.png)
-	10.![CRUD Screenshot](CRUD.png)
+	5. A list is displayed in tabular format and changes when ever there is an operation. For example, if flight is updated it refreshes with new flight name.
+	![Screenshots] (https://drive.google.com/open?id=1oVRZOUy2nmJcHUaplFzhg22avyoWvup4ohZ7oVC6VT8)
 	
