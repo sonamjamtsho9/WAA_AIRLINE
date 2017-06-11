@@ -116,6 +116,14 @@ public class CommonService implements Serializable {
 		}
 	}
 
+	public void deletefromjsf() {
+		// Long id = Long.parseLong(flightQuery.getAirlineName());
+		Airline a = new Airline();
+		a.setId(flightQuery.getId());
+		airlineService.delete(a);
+
+	}
+
 	public List<Flight> getListFlight() {
 		return listFlight;
 	}
@@ -124,12 +132,19 @@ public class CommonService implements Serializable {
 		this.listFlight = listFlight;
 	}
 
-	public Query getSearchQuery() {
+	public Query getFlightQuery() {
 		return flightQuery;
 	}
 
-	public void setQuery(Query flightQuery) {
+	public void setFlightQuery(Query flightQuery) {
 		this.flightQuery = flightQuery;
 	}
+	// public Query getQuery() {
+	// return flightQuery;
+	// }
+	//
+	// public void setQuery(Query flightQuery) {
+	// this.flightQuery = flightQuery;
+	// }
 
 }
