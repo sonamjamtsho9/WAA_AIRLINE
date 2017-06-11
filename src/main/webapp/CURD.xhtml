@@ -23,6 +23,13 @@
 
 	<h:form>
  	    Update AirlineName:
+ 	    <h:selectOneMenu value="#{commonService.flightQuery.id}">
+
+                <f:selectItems value="#{airlineService.findAll()}" var="c"
+
+                    itemLabel="#{c.name}" itemValue="#{c.id}" />
+            </h:selectOneMenu>
+ 	    
 		<h:inputText id="text_airlinename3"
 			value="#{commonService.flightQuery.airlineName}">
 		</h:inputText>
@@ -34,9 +41,16 @@
 	
 	<h:form>
  	    Delete AirlineName:
- 	    <h:inputText id="text_airlinename2"
+ 	     <h:selectOneMenu value="#{commonService.flightQuery.id}">
+
+                <f:selectItems value="#{airlineService.findAll()}" var="c"
+
+                    itemLabel="#{c.name}" itemValue="#{c.id}" />
+            </h:selectOneMenu>
+ 	    
+ 	   <!--  <h:inputText id="text_airlinename2"
 			value="#{commonService.flightQuery.airlineName}">
-		</h:inputText>
+		</h:inputText>  -->
 		<h:commandButton value="Delete">
 			<f:ajax listener="#{commonService.deleteFromJSF()}" execute="@form"
 				render="table_id" />
@@ -45,7 +59,7 @@
 
 	<br />
 	<h:form>
-		<h:dataTable value="#{airlineService.findAll()}" var="var"
+		<h:dataTable id="table_id" value="#{airlineService.findAll()}" var="var"
 			styleClass="bankTable" headerClass="bankTableHeader"
 			rowClasses="bankTableOddRow,bankTableEvenRow">
 			<h:column>

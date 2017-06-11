@@ -33,13 +33,13 @@
 			value="#{commonService.flightQuery.destinationAirportCode}">
 		</h:inputText>
 
-		<h:commandButton value="search">
+		<h:commandButton value="Search">
 			<f:ajax listener="#{commonService.filterQuery()}" execute="@form"
-				render="list" />
+				render="display" />
 		</h:commandButton>
 	</h:form>
 	<br />
-	<h:dataTable value="#{commonService.listFlight}" var="var" id="list"
+	<h:dataTable id="display" value="#{commonService.listFlight}" var="var"
 		styleClass="bankTable" headerClass="bankTableHeader"
 		rowClasses="bankTableOddRow,bankTableEvenRow">
 		<h:column>

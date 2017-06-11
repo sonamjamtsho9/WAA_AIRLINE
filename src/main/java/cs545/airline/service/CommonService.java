@@ -42,7 +42,7 @@ public class CommonService implements Serializable {
 		listFlight = flightService.findAll();
 	}
 
-	public void filterQuery() {
+	public void filter() {
 		if (flightQuery == null
 				|| ("".equals(flightQuery.getAirlineName()) && "".equals(flightQuery.getOriginAirportCode())
 						&& "".equals(flightQuery.getDestinationAirportCode()))) {
@@ -117,25 +117,26 @@ public class CommonService implements Serializable {
 	}
 
 	public void createFromJSF() {
-		Airline a = new Airline();
-		a.setName(flightQuery.getAirlineName());
-		airlineService.create(a);
+		Airline airline = new Airline();
+		airline.setName(flightQuery.getAirlineName());
+		airlineService.create(airline);
 	}
 
 	public void deleteFromJSF() {
-		long id = Long.parseLong(flightQuery.getAirlineName());
-		Airline a = new Airline();
-		a.setId(id);
-		airlineService.delete(a);
+
+		Airline airline = new Airline();
+		airline.setId(flightQuery.getId());
+		airlineService.delete(airline);
 
 	}
 
 	public void updateFromJSF() {
-		long id = Long.parseLong(flightQuery.getOriginAirportCode());
-		Airline a = new Airline();
-		a.setId(id);
-		a.setName(flightQuery.getAirlineName());
-		airlineService.update(a);
+
+		Airline airline = new Airline();
+
+		airline.setId(flightQuery.getId());
+		airline.setName(flightQuery.getAirlineName());
+		airlineService.update(airline);
 	}
 
 	public List<Flight> getListFlight() {
