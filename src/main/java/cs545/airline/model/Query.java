@@ -8,6 +8,10 @@ public class Query {
 
 	private String airlineName;
 
+	private String departureTime;
+
+	private String arrivalTime;
+
 	private String searchBy;
 
 	public String getAirlineName() {
@@ -20,6 +24,22 @@ public class Query {
 
 	public String getOriginAirportCode() {
 		return originAirportCode;
+	}
+
+	public String getDepartureTime() {
+		return departureTime;
+	}
+
+	public void setDepartureTime(String departureTime) {
+		this.departureTime = departureTime;
+	}
+
+	public String getArrivalTime() {
+		return arrivalTime;
+	}
+
+	public void setArrivalTime(String arrivalTime) {
+		this.arrivalTime = arrivalTime;
 	}
 
 	public void setOriginAirportCode(String originAirportCode) {

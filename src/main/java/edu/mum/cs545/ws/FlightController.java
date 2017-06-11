@@ -1,7 +1,11 @@
 package edu.mum.cs545.ws;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -20,7 +24,7 @@ import cs545.airline.service.FlightService;
 
 @Path("Flight")
 public class FlightController {
-
+	private static DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.US);
 	@Inject
 	private FlightService flightService;
 
@@ -123,16 +127,37 @@ public class FlightController {
 		return byDest;
 	}
 
-	// // Find by Arrival by airplane
-	// @GET
-	// @Path("ByArrival/{arrid}")
-	// @Produces(MediaType.APPLICATION_JSON)
-	// public List<Flight> getByArrival(@PathParam("arrid") String arrid) {
-	// Airplane airplane = new Airplane();
-	// airplane.setId(Long.parseLong(arrid));
-	// List<Flight> byArrival = flightService.findByArrival(airplane);
-	// return byArrival;
-	// }
+	// Find by Arrival Time
+	@GET
+	@Path("ByArrival/{arrdate}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Flight> getByArrivalTime(@PathParam("arrdate") String arrdate) {
+		Date ad = null;
+		try {
+			ad = df.parse(arrdate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<Flight> byArrival = flightService.findByArrival(ad);
+		return byArrival;
+	}
+
+	// Find by Departure Time
+	@GET
+	@Path("ByDepart/{ddate}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Flight> getByDepartureTime(@PathParam("ddate") String ddate) {
+		Date dd = null;
+		try {
+			dd = df.parse(ddate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<Flight> byArrival = flightService.findByArrival(dd);
+		return byArrival;
+	}
 
 	// List all Flight
 	@GET

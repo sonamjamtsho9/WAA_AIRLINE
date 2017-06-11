@@ -1,8 +1,12 @@
 package cs545.airline.service;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
@@ -18,7 +22,7 @@ import cs545.airline.model.Query;
 @ViewScoped
 public class CommonService implements Serializable {
 	private static final long serialVersionUID = 1L;
-	// git hub
+
 	@Inject
 	private FlightService flightService;
 	@Inject
@@ -28,9 +32,9 @@ public class CommonService implements Serializable {
 
 	private Query flightQuery;
 
-	// date-time, airline, departure, and destination
-
 	private List<Flight> listFlight;
+
+	private static DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.US);
 
 	@PostConstruct
 	public void findAllFlight() {
@@ -38,7 +42,7 @@ public class CommonService implements Serializable {
 		listFlight = flightService.findAll();
 	}
 
-	public void SearchFlight() {
+	public void filter() {
 		if (flightQuery == null
 				|| ("".equals(flightQuery.getAirlineName()) && "".equals(flightQuery.getOriginAirportCode())
 						&& "".equals(flightQuery.getDestinationAirportCode()))) {
@@ -46,10 +50,30 @@ public class CommonService implements Serializable {
 		} else {
 
 			if (flightQuery.getAirlineName() != null && !"".equals(flightQuery.getAirlineName())) {
-				Airline airlineNew = airlineService.findByName(flightQuery.getAirlineName());
-				if (airlineNew != null) {
-					listFlight = flightService.findByAirline(airlineNew);
+				Airline airline = airlineService.findByName(flightQuery.getAirlineName());
+				if (airline != null) {
+					listFlight = flightService.findByAirline(airline);
 				}
+			}
+			if (flightQuery.getDepartureTime() != null && !"".equals(flightQuery.getDepartureTime())) {
+				Date dd = null;
+				try {
+					dd = df.parse(flightQuery.getDepartureTime());
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				listFlight = flightService.findByDeparture(dd);
+			}
+			if (flightQuery.getArrivalTime() != null && !"".equals(flightQuery.getArrivalTime())) {
+				Date ad = null;
+				try {
+					ad = df.parse(flightQuery.getArrivalTime());
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				listFlight = flightService.findByDeparture(ad);
 			}
 
 			if (flightQuery.getOriginAirportCode() != null && !"".equals(flightQuery.getOriginAirportCode())) {
