@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+<h:body>
+	<h3>CURD Operation</h3>
+	<h:form>
+ 	    Create AirlineName:
+ 	    <h:inputText id="text_airlinename"
+			value="#{commonService.flightQuery.airlineName}">
+		</h:inputText>
+		<h:commandButton value="Create">
+			<f:ajax listener="#{commonService.createFromJSF()}" execute="@form"
+				render="table_id" />
+		</h:commandButton>
+	</h:form>
+
+	<h:form>
+ 	    Update AirlineName:
+		<h:inputText id="text_airlinename3"
+			value="#{commonService.flightQuery.airlineName}">
+		</h:inputText>
+		<h:commandButton value="Update">
+			<f:ajax listener="#{commonService.updateFromJSF()}" execute="@form"
+				render="table_id" />
+		</h:commandButton>
+	</h:form>
+	
+	<h:form>
+ 	    Delete AirlineName:
+ 	    <h:inputText id="text_airlinename2"
+			value="#{commonService.flightQuery.airlineName}">
+		</h:inputText>
+		<h:commandButton value="Delete">
+			<f:ajax listener="#{commonService.deleteFromJSF()}" execute="@form"
+				render="table_id" />
+		</h:commandButton>
+	</h:form>
+
+	<br />
+	<h:form>
+		<h:dataTable value="#{airlineService.findAll()}" var="var"
+			styleClass="bankTable" headerClass="bankTableHeader"
+			rowClasses="bankTableOddRow,bankTableEvenRow">
+			<h:column>
+				<f:facet name="header">Flight Id</f:facet>#{var.id}
+		</h:column>
+			<h:column>
+				<f:facet name="header">Airline</f:facet>#{var.name}
+		</h:column>
+		</h:dataTable>
+	</h:form>
+	<br />
+	<h:form>
+		<h:commandLink action="index?faces-redirect=true">
+			<h:outputText value="Back"></h:outputText>
+		</h:commandLink>
+	</h:form>
+</h:body>
+</html>

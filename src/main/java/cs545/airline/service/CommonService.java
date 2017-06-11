@@ -42,7 +42,7 @@ public class CommonService implements Serializable {
 		listFlight = flightService.findAll();
 	}
 
-	public void filter() {
+	public void filterQuery() {
 		if (flightQuery == null
 				|| ("".equals(flightQuery.getAirlineName()) && "".equals(flightQuery.getOriginAirportCode())
 						&& "".equals(flightQuery.getDestinationAirportCode()))) {
@@ -116,12 +116,26 @@ public class CommonService implements Serializable {
 		}
 	}
 
-	public void deletefromjsf() {
-		// Long id = Long.parseLong(flightQuery.getAirlineName());
+	public void createFromJSF() {
 		Airline a = new Airline();
-		a.setId(flightQuery.getId());
+		a.setName(flightQuery.getAirlineName());
+		airlineService.create(a);
+	}
+
+	public void deleteFromJSF() {
+		long id = Long.parseLong(flightQuery.getAirlineName());
+		Airline a = new Airline();
+		a.setId(id);
 		airlineService.delete(a);
 
+	}
+
+	public void updateFromJSF() {
+		long id = Long.parseLong(flightQuery.getOriginAirportCode());
+		Airline a = new Airline();
+		a.setId(id);
+		a.setName(flightQuery.getAirlineName());
+		airlineService.update(a);
 	}
 
 	public List<Flight> getListFlight() {
@@ -139,12 +153,5 @@ public class CommonService implements Serializable {
 	public void setFlightQuery(Query flightQuery) {
 		this.flightQuery = flightQuery;
 	}
-	// public Query getQuery() {
-	// return flightQuery;
-	// }
-	//
-	// public void setQuery(Query flightQuery) {
-	// this.flightQuery = flightQuery;
-	// }
 
 }

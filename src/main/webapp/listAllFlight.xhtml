@@ -14,27 +14,27 @@
 	<h:form>
  	Airline:
  	<h:inputText id="airlineName_id"
-			value="#{commonService.searchQuery.airlineName}">
+			value="#{commonService.flightQuery.airlineName}">
 		</h:inputText>
  	Departure DateTime:
  	<h:inputText id="departureTime_id"
-			value="#{commonService.searchQuery.departureTime}">
+			value="#{commonService.flightQuery.departureTime}">
 		</h:inputText>
  	Arrival DateTime:
  	<h:inputText id="arrivalTime_id"
-			value="#{commonService.searchQuery.arrivalTime}">
+			value="#{commonService.flightQuery.arrivalTime}">
 		</h:inputText>
  	Origin:
  	<h:inputText id="originAirportCode_id"
-			value="#{commonService.searchQuery.originAirportCode}">
+			value="#{commonService.flightQuery.originAirportCode}">
 		</h:inputText>
  	 Destination:
  	<h:inputText id="destinationAirportCode_id"
-			value="#{commonService.searchQuery.destinationAirportCode}">
+			value="#{commonService.flightQuery.destinationAirportCode}">
 		</h:inputText>
 
 		<h:commandButton value="search">
-			<f:ajax listener="#{commonService.filter()}" execute="@form"
+			<f:ajax listener="#{commonService.filterQuery()}" execute="@form"
 				render="list" />
 		</h:commandButton>
 	</h:form>
