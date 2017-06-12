@@ -99,8 +99,7 @@
   	11. List all
   		1. GET method is used to retrieve the information
   		2. URL Path: http://localhost:8080/airlinesWebApp/rs/airport/listall
-  
-# Flight Service
+  # Flight Service
    	1: Create
   		1. POST method is used to create a new airline by passing JSON as raw input as part of the body message
   		2. URL Path: http://localhost:8080/airlinesWebApp/rs/Flight/create
@@ -153,5 +152,6 @@
 		1. A flight name is provided through the input text and the id is genereted randomly.
 		2. For delete and Update methods, a dropdown (jsf selectonemenu) list is provided (which is flight name) to delete or to change the flight name of the airline. 
 	5. A list is displayed in tabular format and changes when ever there is an operation. For example, if flight is updated it refreshes with new flight name.
-	[Link to Screenshot](https://drive.google.com/open?id=1oVRZ!OUy2nmJcHUaplFzhg22avyoWvup4ohZ7oVC6VT8)
+
+[Link to Screenshot](https://drive.google.com/open?id=1oVRZ!OUy2nmJcHUaplFzhg22avyoWvup4ohZ7oVC6VT8)
 	
