@@ -153,5 +153,5 @@
 		1. A flight name is provided through the input text and the id is genereted randomly.
 		2. For delete and Update methods, a dropdown (jsf selectonemenu) list is provided (which is flight name) to delete or to change the flight name of the airline. 
 	5. A list is displayed in tabular format and changes when ever there is an operation. For example, if flight is updated it refreshes with new flight name.
-	![Screenshots] (https://drive.google.com/open?id=1oVRZ!OUy2nmJcHUaplFzhg22avyoWvup4ohZ7oVC6VT8)
+	[Screenshots](https://drive.google.com/open?id=1oVRZ!OUy2nmJcHUaplFzhg22avyoWvup4ohZ7oVC6VT8)
 	
