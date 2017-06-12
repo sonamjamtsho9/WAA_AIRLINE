@@ -153,7 +153,7 @@
 		2. For delete and Update methods, a dropdown (jsf selectonemenu) list is provided (which is flight name) to delete or to change the flight name of the airline. 
 	5. A list is displayed in tabular format and changes when ever there is an operation. For example, if flight is updated it refreshes with new flight name.
 
-# The following are link to Screenshots
+# Links to Screenshots
 
 [Screenshot of Index page](homepage.png)
 
