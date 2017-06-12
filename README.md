@@ -154,7 +154,7 @@
 	5. A list is displayed in tabular format and changes when ever there is an operation. For example, if flight is updated it refreshes with new flight name.
 
 [1. Screenshot of Index page](homepage.png)
-[2. Screenshot of Flight details](Flight details.png)
+[2. Screenshot of Flight details](Flight.png)
 [3. Screenshot of Flight details using filter](filter.png)
 [4. Screenshot of CRUD Operation](CRUD.png)
 [5. Screenshot of list of airline](listairline.png)
