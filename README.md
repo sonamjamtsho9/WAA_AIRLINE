@@ -134,7 +134,7 @@
   	10. List all
   		1. GET method is used to retrieve the information
   		2. URL Path: http://localhost:8080/airlinesWebApp/rs/Flight/listall
-  # JSF Web Application
+# JSF Web Application
   	1. Set up for the Web application
   		1. Two java classes were implemented to provide as the common service to list the flight details and as DAO.
   		2. A simple CSS is created to render the table to list the flight and airline list.
@@ -152,6 +152,8 @@
 		1. A flight name is provided through the input text and the id is genereted randomly.
 		2. For delete and Update methods, a dropdown (jsf selectonemenu) list is provided (which is flight name) to delete or to change the flight name of the airline. 
 	5. A list is displayed in tabular format and changes when ever there is an operation. For example, if flight is updated it refreshes with new flight name.
+
+# The following are link to Screenshots
 
 [Screenshot of Index page](homepage.png)
 
